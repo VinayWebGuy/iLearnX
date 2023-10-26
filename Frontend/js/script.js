@@ -1,34 +1,32 @@
 function main() {
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 0) {
-                $('main').addClass('scrolled')
-            } else {
-                $('main').removeClass('scrolled')
-            }
-        });
-}
-
-main();
-
-$(window).resize(function() {
-   console.log(screen.width);
-   main();
-})
-
-
-document.addEventListener('contextmenu', function(e) {
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 0) {
+        document.querySelector('main').classList.add('scrolled');
+      } else {
+        document.querySelector('main').classList.remove('scrolled');
+      }
+    });
+  }
+  
+  main();
+  
+  window.addEventListener('resize', function() {
+    console.log(window.screen.width);
+    main();
+  });
+  
+  document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
-});
-
-
-$(document).ready(function() {
-    const testimonialBox = $(".testimonial-box");
-    const testimonials = $(".single-testimonial");
-    const testimonialArrows = $(".testimonial-arrows i");
+  });
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    const testimonialBox = document.querySelector('.testimonial-box');
+    const testimonials = document.querySelectorAll('.single-testimonial');
+    const testimonialArrows = document.querySelectorAll('.testimonial-arrows i');
     let currentIndex = 0;
   
     function showTestimonial(index) {
-      testimonialBox.css("transform", `translateX(-${index * 100}%)`);
+      testimonialBox.style.transform = `translateX(-${index * 100}%)`;
     }
   
     function nextTestimonial() {
@@ -41,13 +39,17 @@ $(document).ready(function() {
       showTestimonial(currentIndex);
     }
   
-    testimonialArrows.on("click", function() {
-      if ($(this).hasClass("ri-arrow-left-line")) {
-        prevTestimonial();
-      } else if ($(this).hasClass("ri-arrow-right-line")) {
-        nextTestimonial();
-      }
+    testimonialArrows.forEach(function(arrow) {
+      arrow.addEventListener('click', function() {
+        if (arrow.classList.contains('ri-arrow-left-line')) {
+          prevTestimonial();
+        } else if (arrow.classList.contains('ri-arrow-right-line')) {
+          nextTestimonial();
+        }
+      });
     });
   
-    // setInterval(nextTestimonial, 5000); 
+    // You can uncomment the line below to auto-advance testimonials every 5000 milliseconds.
+    // setInterval(nextTestimonial, 5000);
   });
+  
