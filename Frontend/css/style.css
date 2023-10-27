@@ -542,7 +542,7 @@ section h3 {
     :root {
         --padd: 0 70px;
     }
-    .logo {
+    header .logo {
         font-size: 1.5rem;
     }
     header .menu {
@@ -629,8 +629,8 @@ section h3 {
     .hero .image {
         display: none;
     }
-    .logo {
-        font-size: 1.4rem;
+    header .logo {
+        font-size: 1.2rem;
     }
     header .menu {
         gap: 14px;
@@ -668,9 +668,6 @@ section h3 {
     }
     .service-content {
         font-size: .9rem;
-    }
-    .menu .btn {
-        display: none;
     }
     .single-language {
         width: 100px;
@@ -729,6 +726,10 @@ section h3 {
         height: 50px;
     }
     .login-box {
-        width: 85%;
+        width: 100%;
     }
+    .menu li:first-child {
+        display: none;
+    }
+
 }
