@@ -728,6 +728,9 @@ section h3 {
     .login-box {
         width: 100%;
     }
+    .menu li a {
+        font-size: .9rem;
+    }
     .menu li:first-child {
         display: none;
     }
