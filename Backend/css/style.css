@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+/* Reset Code */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables */
+:root {
+    --headingFont: Fira Sans;
+    --normalFont: Open Sans;
+    --lightClr: #fff;
+    --darkClr: #000;
+    --darkShadow: 0 0 5px rgba(0, 0, 0, .7);
+    --lightShadow: 0 0 5px rgba(255, 255, 255, .7);
+    --padd: 0 80px;
+    --asideWidth: 250px;
+    --headerHeight: 90px;
+}
+
+body {
+    position: relative;
+    font-family: var(--normalFont);
+    user-select: none;
+    scroll-behavior: smooth;
+}
+main {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: var(--lightClr);
+  
+}
+main.dark {
+    --lightClr: #000;
+    --darkClr: #fff;
+    --darkShadow: 0 0 5px rgba(255, 255, 255, .7);
+    --lightShadow: 0 0 5px rgba(0, 0, 0, .7);
+}
+main.collapsed {
+    --asideWidth: 100px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--headingFont);
+}
+input, textarea, select, button {
+    font-family: var(--normalFont);
+}
+input::selection {
+    background: var(--darkClr);
+    color: var(--lightClr);
+ }
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+.btn {
+    background-color: var(--darkClr);
+    padding: 6px 10px;
+    font-weight: 600;
+    color: var(--lightClr);
+    border: 1px solid var(--lightClr);
+    border-radius: 7px;
+    border: none;
+    transition: all .3s;
+    cursor: pointer;
+}
+.btn:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: var(--lightShadow);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+    
+/* Aside */
+aside {
+    position: relative;
+    width: var(--asideWidth);
+    min-height: 100vh;
+    background-color: var(--lightClr);
+    color: var(--darkClr);
+    box-shadow: var(--darkShadow);
+    z-index: 8;
+    transition: all .3s;
+}
+
+.logo {
+    display: block;
+    font-weight: 800;
+    padding: 40px;
+    font-size: 1.3rem;
+    font-family: var(--headingFont);
+    height: 25px;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    z-index: 8;
+    background-color: var(--lightClr);
+    transition: all .3s;
+}
+.collapsed .logo {
+    font-size: .8rem;
+}
+.menu-icon {
+    margin-right: 10px;
+    font-weight: 600;
+    font-size: 1.2rem;
+} 
+.menu {
+    line-height: 3rem;
+    padding: 0 40px;
+}
+.menu li {
+    height: 50px;
+    overflow: hidden;
+    transition: transform .3s;
+}
+.menu li:hover {
+    transform: translateX(10px);
+}
+
+
+
+
+
+
+
+/* Right Content */
+
+/* Header */
+header {
+    height: var(--headerHeight);
+    width: calc(100vw - var(--asideWidth));
+    background-color: var(--lightClr);
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    box-shadow: var(--darkShadow);
+    transition: all .3s;
+    justify-content: center;
+    z-index: 7;
+}
+#toggle-menu {
+    color: var(--darkClr);
+    font-size: 2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    cursor: pointer;
+    transition: all .3s;
+}
+#toggle-theme {
+    color: var(--darkClr);
+    font-size: 1.4rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    cursor: pointer;
+    transition: all .3s;
+}
+.welcome-button {
+    font-weight: 800;
+    border-bottom: 2px solid var(--darkClr);
+    color: var(--darkClr);
+    font-size: 1.3rem;
+}
+
+/* Content */
+.content {
+    background-color: var(--lightClr);
+    transition: all .3s;
+    padding: 40px;
+    transition: all .3s;
+}
+
+.my-form {
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: var(--darkShadow);
+    transition: all .3s;
+}
+.my-form h3 {
+    margin: 8px 0 20px;
+    text-align: center;
+    font-size: 1.6rem;
+    color: var(--darkClr);
+    transition: all .3s;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+.row.double .form_group {
+    width: 48%;
+}
+.row.triple .form_group {
+    width: 30%;
+}
+.row.quad .form_group {
+    width: 24%;
+}
+.form_group {
+    margin: 10px 0;
+    color: var(--darkClr);
+    transition: all .3s;
+    position: relative;
+}
+.form_group input {
+    margin-top: 4px;
+    width: 100%;
+    padding: 6px 12px;
+    outline: none;
+    border: 1px solid var(--darkClr);
+    background: var(--lightClr);
+    color: var(--darkClr);
+    transition: all .3s;
+    font-size: 1rem;
+}
+
+.form_group .select-options {
+    width: 100%;
+    padding: 7px 12px;
+    box-shadow: var(--darkShadow);
+    line-height: 2rem;
+    max-height: 80px;
+    overflow-y: auto;
+    display: none;
+}
+.form_group .select-options.have {
+    display: block;
+}
+.select-options.have li {
+    cursor: pointer;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 767px) {
+    .logo {
+        font-size: 1.1rem;
+        padding: 40px 20px;
+    }
+    .menu-icon {
+        font-size: 1rem;
+    }
+    #toggle-menu {
+        font-size: 1.3rem;
+    }
+    #toggle-theme {
+        font-size: 1.1rem;
+    }
+    .welcome-button {
+        font-size: 1rem;
+        display: none;
+    }
+    .collapsed .welcome-button {
+        display: block;
+    }
+    :root {
+        --asideWidth: 240px;
+    }
+    main.collapsed {
+        --asideWidth: 70px;
+    }
+    .menu {
+        line-height: 2.5rem;
+        padding: 0 20px;
+    }
+}
